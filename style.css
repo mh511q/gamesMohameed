@@ -1,0 +1,224 @@
+/* (نفس الأكواد السابقة تماماً، أضف هذا الجزء في نهاية الملف) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    background-image: url(bg.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+h1 {
+    color: #fff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.score-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; 
+    max-width: 450px; 
+    margin: 0 auto;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.stars {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.stars li {
+    color: #ffd700;
+    font-size: 1.2rem;
+}
+
+.restart {
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.restart:hover {
+    transform: rotate(180deg) scale(1.1);
+    background-color: #ff4757;
+    color: white;
+}
+
+.game-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.deck {
+    width: 95%;
+    max-width: 660px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px;
+    padding: 15px;
+    list-style: none;
+}
+
+.card {
+    aspect-ratio: 3 / 4;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    background-color: #2e3d49;
+    border-radius: 8px;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+    cursor: default;
+}
+
+.card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    object-fit: cover;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+@media (min-width: 600px) {
+    .deck {
+        padding: 32px;
+        gap: 16px;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+/* =========================================
+   تصميم نافذة الفوز (MODAL Styles) - جديد
+   ========================================= */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100; /* لضمان ظهورها فوق كل شيء */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    width: 85%;
+    max-width: 400px;
+    position: relative;
+    transition: all 5s ease-in-out;
+    text-align: center;
+    font-family: Tahoma, Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #ff4757;
+}
+
+.popup .content-1 {
+    max-height: 30%;
+    overflow: auto;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+#play-again {
+    background-color: #02ccba;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#play-again:hover {
+    background-color: #029f91;
+}

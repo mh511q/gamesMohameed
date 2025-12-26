@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Cosmic Memory</h1>
+        
+        <section class="score-panel">
+            <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+
+            <span class="moves">0 Moves</span>
+            <span class="timer">00:00</span>
+
+            <div class="restart" onclick="restartGame()">
+                <i class="fa fa-repeat"></i>
+            </div>
+        </section>
+    </header>
+
+    <div class="game-container">
+        <ul class="deck">
+            <li class="card"><img src="icon-1.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-1.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-2.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-2.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-3.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-3.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-4.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-4.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-5.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-5.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-6.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-6.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-7.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-7.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-8.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+            <li class="card"><img src="icon-8.png" class="front-face"><img src="card-back.png" class="back-face"></li>
+        </ul>
+    </div>
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>مبروك! 🎉</h2>
+            <a class="close" href="#" onclick="closeModal()">×</a>
+            <div class="content-1">
+                لقد فزت ببراعة!
+                <br>
+                حققت الفوز بـ <span id="finalMove"></span> حركة 
+                <br>
+                وقت المستغرق: <span id="totalTime"></span>
+            </div>
+            <button id="play-again" onclick="playAgain()">العب مرة أخرى 🚀</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
